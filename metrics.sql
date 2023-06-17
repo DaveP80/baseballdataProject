@@ -45,3 +45,15 @@ HAVING
 	AVG(release_speed) > 86
 ORDER BY
 	player_name;
+-- select avg number of outs when the outcome is a strikeout
+SELECT
+	AVG(outs_when_up) AS numouts
+FROM
+	(
+	SELECT
+		*
+	FROM
+		baseball
+	WHERE
+		events = 'strikeout'
+) a;
